@@ -1,0 +1,105 @@
+#!/bin/bash
+
+#Configuring ROS Environment
+source ~/catkin_ws/devel/setup.bash
+
+#setting up colors and a start position
+rosservice call /reset
+rosparam set /background_r 221
+rosparam set /background_g 221
+rosparam set /background_b 221
+rosservice call /clear
+rosservice call /turtle1/set_pen 221 221 221 0 0
+rosservice call /turtle1/teleport_absolute 0.5 5 0
+rosservice call /turtle1/set_pen 0 0 0 2 0
+
+function zero() {
+
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 2 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 2 0	
+}
+
+function two() {
+
+   	rosservice call /turtle1/teleport_relative 1 0
+   	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+   	rosservice call /turtle1/teleport_relative 1 0
+   	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+   	rosservice call /turtle1/teleport_relative 1 0
+   	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 1.570796]'
+   	rosservice call /turtle1/teleport_relative 1 0
+   	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 1.570796]'
+   	rosservice call /turtle1/teleport_relative 1 0
+}
+
+function four(){
+
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 3.141592]'
+	rosservice call /turtle1/teleport_relative 2 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 1.570796]'
+}
+
+function nine() {
+
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'	
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'	
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'	
+	rosservice call /turtle1/teleport_relative 2 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 1.570797]'
+
+}
+
+function three() {
+
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rosservice call /turtle1/teleport_relative 1 3.141592
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.570796]'
+	rosservice call /turtle1/teleport_relative 1 0
+	rosservice call /turtle1/teleport_relative 1 3.141592
+}
+
+function next_number() {
+
+	rosservice call /turtle1/set_pen 221 221 221 0 0
+	rosservice call /turtle1/teleport_relative 2.02237 1.42191
+	rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -1.42191]'
+	rosservice call /turtle1/set_pen 0 0 0 2 0
+}
+
+two
+next_number
+four
+next_number
+three
+next_number
+nine
+next_number
+four
+next_number
+zero
+
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -3.14]'
